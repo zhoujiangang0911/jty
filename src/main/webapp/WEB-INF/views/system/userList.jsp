@@ -202,7 +202,7 @@ function look(){
 //创建查询对象并查询
 function cx(){
 	var obj=$("#searchFrom").serializeObject();
-	dg.datagrid('reload',obj); 
+	dg.datagrid('load',obj); 
 }
 
 </script>
