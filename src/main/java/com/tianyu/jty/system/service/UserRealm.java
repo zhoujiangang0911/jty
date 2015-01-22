@@ -27,7 +27,9 @@ import com.tianyu.jty.common.utils.security.Encodes;
 import com.tianyu.jty.system.entity.Permission;
 import com.tianyu.jty.system.entity.User;
 import com.tianyu.jty.system.entity.UserRole;
+import com.tianyu.jty.system.utils.CaptchaException;
 import com.tianyu.jty.system.utils.UserUtil;
+import com.tianyu.jty.system.utils.UsernamePasswordCaptchaToken;
 
 /**
  * 用户登录授权service(shrioRealm)
@@ -49,14 +51,14 @@ public class UserRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
-		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
+		UsernamePasswordCaptchaToken token = (UsernamePasswordCaptchaToken) authcToken; 
 		User user = userService.getUser(token.getUsername());
 		
-		if (user != null) {
+		if (user != null&&doCaptchaValidate(token)) {
 			byte[] salt = Encodes.decodeHex(user.getSalt());
 			ShiroUser shiroUser=new ShiroUser(user.getId(), user.getLoginName(), user.getName());
 			//设置用户session
-			Session session =UserUtil.getSession();
+			Session session =SecurityUtils.getSubject().getSession();
 			session.setAttribute("user", user);
 			return new SimpleAuthenticationInfo(shiroUser,user.getPassword(), ByteSource.Util.bytes(salt), getName());
 		} else {
@@ -72,8 +74,8 @@ public class UserRealm extends AuthorizingRealm {
 		ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();
 		User user = userService.getUser(shiroUser.loginName);
 		
-		//把principals放session中
-		UserUtil.getSession().setAttribute(String.valueOf(user.getId()),SecurityUtils.getSubject().getPrincipals());
+		//把principals放session中 key=userId value=principals
+		SecurityUtils.getSubject().getSession().setAttribute(String.valueOf(user.getId()),SecurityUtils.getSubject().getPrincipals());
 		
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 		//赋予角色
@@ -90,6 +92,21 @@ public class UserRealm extends AuthorizingRealm {
 		userService.updateUserLogin(user);
 		return info;
 	}
+	
+	/**
+	 * 验证码校验
+	 * @param token
+	 * @return boolean
+	 */
+	protected boolean doCaptchaValidate(UsernamePasswordCaptchaToken token)
+	{
+		String captcha = (String) SecurityUtils.getSubject().getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+		if (captcha != null &&!captcha.equalsIgnoreCase(token.getCaptcha())){
+			throw new CaptchaException("验证码错误！");
+		}
+		return true;
+	}
+		
 
 	/**
 	 * 设定Password校验的Hash算法与迭代次数.
