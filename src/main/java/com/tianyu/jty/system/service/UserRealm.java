@@ -10,7 +10,6 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -28,7 +27,6 @@ import com.tianyu.jty.system.entity.Permission;
 import com.tianyu.jty.system.entity.User;
 import com.tianyu.jty.system.entity.UserRole;
 import com.tianyu.jty.system.utils.CaptchaException;
-import com.tianyu.jty.system.utils.UserUtil;
 import com.tianyu.jty.system.utils.UsernamePasswordCaptchaToken;
 
 /**

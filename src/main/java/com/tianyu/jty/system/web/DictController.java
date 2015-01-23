@@ -38,8 +38,6 @@ public class DictController extends BaseController{
 	
 	/**
 	 * 默认页面
-	 * 
-	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String list() {
@@ -47,7 +45,7 @@ public class DictController extends BaseController{
 	}
 
 	/**
-	 * 获取用户json
+	 * 获取字典json
 	 */
 	@RequiresPermissions("sys:dict:view")
 	@RequestMapping(value="json",method = RequestMethod.GET)
@@ -60,7 +58,7 @@ public class DictController extends BaseController{
 	}
 	
 	/**
-	 * 添加用户跳转
+	 * 添加字典跳转
 	 * 
 	 * @param model
 	 */
@@ -73,7 +71,7 @@ public class DictController extends BaseController{
 	}
 
 	/**
-	 * 添加用户
+	 * 添加字典
 	 * 
 	 * @param dict
 	 * @param model
@@ -87,7 +85,7 @@ public class DictController extends BaseController{
 	}
 
 	/**
-	 * 修改用户跳转
+	 * 修改字典跳转
 	 * 
 	 * @param id
 	 * @param model
@@ -102,7 +100,7 @@ public class DictController extends BaseController{
 	}
 
 	/**
-	 * 修改用户
+	 * 修改字典
 	 * 
 	 * @param dict
 	 * @param model
@@ -117,7 +115,7 @@ public class DictController extends BaseController{
 	}
 
 	/**
-	 * 删除用户
+	 * 删除字典
 	 * 
 	 * @param id
 	 * @return

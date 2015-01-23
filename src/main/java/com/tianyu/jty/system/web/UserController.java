@@ -43,8 +43,6 @@ public class UserController extends BaseController {
 
 	/**
 	 * 默认页面
-	 * 
-	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String list() {
