@@ -1,5 +1,5 @@
 ##一个基础的权限管理系统
-#####jty是由spring+springmvc+hibernate+shiro+quartz+maven+easyui写的一个框架集合，参考了springside,jeesite等一些优秀的开源项目，目前实现了一个基础的权限管理系统，界面美观(我觉的挺好看...囧)，后面如果有空闲时间会继续添加一些常见的功能，工作流，webservice什么的，也会修改。有什么建议可以提给我，多谢。
+#####jty是由spring+springmvc+hibernate+shiro+quartz+maven+easyui写的一个框架集合，参考了springside,jeesite等一些优秀的开源项目，目前实现了一个基础的权限管理系统，界面美观(我觉的挺好看...囧)，后面如果有空闲时间会继续添加一些常见的功能，工作流、webservice什么的，有空也会修改。
 #####后台访问路径：http://localhost:8080/jty/a
 #####帐号：admin 	密码：123456
 #####邮箱：779205344@qq.com
