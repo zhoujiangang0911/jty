@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.InitBinder;
 
 import com.tianyu.jty.common.persistence.Page;
 import com.tianyu.jty.common.utils.DateUtils;
+import com.tianyu.jty.common.utils.StringUtils;
 
 
 /**
- * 基础控制器 其他控制器继承此控制器获得日期字段类型转换和防止XSS攻击的功能
+ * 基础控制器 
+ * 其他控制器继承此控制器获得日期字段类型转换和防止XSS攻击的功能
  * @description 
  * @author ty
  * @date 2014年3月19日
@@ -63,10 +65,18 @@ public class BaseController {
 	 * @return page对象
 	 */
 	public <T> Page<T> getPage(HttpServletRequest request){
-		int pageNo=(request.getParameter("page")==null?1:Integer.valueOf(request.getParameter("page")));//设置当前页码
-		int pageSize=(request.getParameter("rows")==null?20:Integer.valueOf(request.getParameter("rows")));//设置每页行数
-		String orderBy=(request.getParameter("sort")==null?"id":request.getParameter("sort").toString());//设置排序字段
-		String order=(request.getParameter("order")==null?"asc":request.getParameter("order").toString());//设置排序顺序
+		int pageNo=1;	//当前页码
+		int pageSize=20;	//每页行数
+		String orderBy="id";	//排序字段
+		String order="asc";	//排序顺序
+		if(StringUtils.isNotEmpty(request.getParameter("page")))
+			pageNo=Integer.valueOf(request.getParameter("page"));
+		if(StringUtils.isNotEmpty(request.getParameter("rows")))
+			pageSize=Integer.valueOf(request.getParameter("rows"));
+		if(StringUtils.isNotEmpty(request.getParameter("sort")))
+			orderBy=request.getParameter("sort").toString();
+		if(StringUtils.isNotEmpty(request.getParameter("order")))
+			order=request.getParameter("order").toString();
 		return new Page<T>(pageNo, pageSize, orderBy, order);
 	}
 	

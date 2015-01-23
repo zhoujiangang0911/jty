@@ -19,7 +19,6 @@
             正在加载...
         </div>
     </div>
-
     <div id="mainLayout" class="easyui-layout hidden" data-options="fit: true">
         <div id="northPanel" data-options="region: 'north', border: false" style="height: 80px; overflow: hidden;">
             <div id="topbar" class="top-bar">
