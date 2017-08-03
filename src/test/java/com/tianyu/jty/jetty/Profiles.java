@@ -19,6 +19,6 @@ public class Profiles {
 	 * 在Spring启动前，设置profile的环境变量。
 	 */
 	public static void setProfileAsSystemProperty(String profile) {
-		System.setProperty(ACTIVE_PROFILE, profile);
+	//	System.setProperty(ACTIVE_PROFILE, profile);
 	}
 }

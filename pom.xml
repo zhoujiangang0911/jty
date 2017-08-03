@@ -263,12 +263,13 @@
 		<!-- jetty end -->
 
 		<!-- 解析客户端操作系统、浏览器等 -->
-		<dependency>
-			<groupId>bitwalker</groupId>
-			<artifactId>UserAgentUtils</artifactId>
-			<version>1.9</version>
-		</dependency>
-		<!-- poi -->
+        <dependency>
+            <groupId>eu.bitwalker</groupId>
+            <artifactId>UserAgentUtils</artifactId>
+            <version>1.20</version>
+        </dependency>
+
+        <!-- poi -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
@@ -342,8 +343,13 @@
 			<artifactId>quartz-jobs</artifactId>
 			<version>${quartz.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>

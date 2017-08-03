@@ -19,6 +19,6 @@ public class JTYTest extends AbstractJUnit4SpringContextTests {
 		for(String s:names){
 			System.out.println(s);
 		}*/
-		System.out.println(userService.getAll().size());
+		//System.out.println(userService.getAll().size());
 	}
 }
