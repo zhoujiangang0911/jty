@@ -35,57 +35,6 @@
 		<jdk.version>1.8</jdk.version>
 	</properties>
 
-	<!-- 设定仓库 -->
-	<repositories>
-		<repository>
-			<id>central-repos</id>
-			<name>Central Repository</name>
-			<url>http://repo.maven.apache.org/maven2</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-
-		<repository>
-			<id>central-repos2</id>
-			<name>Central Repository 2</name>
-			<url>http://repo1.maven.org/maven2/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-
-		<repository>
-			<id>springsource-repos</id>
-			<name>SpringSource Repository</name>
-			<url>http://repo.springsource.org/libs-milestone-local</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<name>osc Repository</name>
-			<id>osc_thirdparty</id>
-			<url>http://maven.oschina.net/content/repositories/thirdparty/</url>
-		</repository>
-		<repository>
-			<id>bitwalker.user-agent-utils.mvn.repo</id>
-			<url>https://raw.github.com/HaraldWalker/user-agent-utils/mvn-repo/</url>
-			<!-- use snapshot version -->
-			<snapshots>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
 
 	<dependencies>
 		<!-- spring begin -->
